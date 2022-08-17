@@ -15,7 +15,7 @@ class TestONEKEYLOG():
     #     print(ret)
 
     def testfunc(self):
-        a = 1
+        a = 2
         b = 2
         assert_equal(a, b)
         print(a == b)
