@@ -1,8 +1,8 @@
 import os
 import re
 
-import nose
 from nose.tools import assert_equal
+import nose
 import convertInspurokl
 from configuration import conf_dict
 from parse_analy_report import deal_report
