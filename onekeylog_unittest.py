@@ -65,9 +65,9 @@ class TestONEKEYLOG():
         assert_equal(cpuinfo, {'socket_id': '0', 'core_id': '1', 'thread_id': None, 'cha_id': None, 'bank_id': '3'})
 
     def test_generate_file(self):
-        generate_file("test", dic, 0)
-        if os.path.exists("converted_test_0.json"):
-            os.remove("converted_test_0.json")
+        generate_file("/tmp/test", dic, 0)
+        if os.path.exists("/tmp/converted_test_0.json"):
+            os.remove("/tmp/converted_test_0.json")
         else:
             assert_equal(1, 2)
 

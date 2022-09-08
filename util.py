@@ -46,8 +46,6 @@ def deal_bankid_None(txt, target):
 # in finally, cut into a list based on commas, if temp is the other type，
 # print the error info in logs and return a empty list(just []).
 def get_file_list(temp = None):
-    if not logger:
-        init_logger()
     list = []
     if isinstance(temp, str):
         if os.path.exists(temp):
@@ -85,8 +83,6 @@ def _read_json(filename=None):
 # @parameter - i： the index number of the generated file.
 # return - None
 def generate_file(filename, new_crashdump, i):
-    if not logger:
-        init_logger()
     new_filename = 'converted_%s_%i%s' % (os.path.basename(filename).replace("ErrorAnalyReport.json", "RegAnalyRpt").replace(".json", ""), i,".json")  # TODO
     dest_folder = os.path.abspath(os.path.dirname(filename))  # os.path.abspath()   the absolute path
     full_path = os.path.join(dest_folder, new_filename)
@@ -102,8 +98,6 @@ def generate_file(filename, new_crashdump, i):
 # If temp is a dict, the temp will be converted to a string, then Remove
 # whitespace from that and return. if the other type， print the error info and return a empty string(just "").
 def get_file_retxt(temp = None):
-    if not logger:
-        init_logger()
     txt = ""
     if isinstance(temp, str):
         if os.path.exists(temp):
@@ -132,8 +126,6 @@ SAD_RESULT = {
 }
 
 def covert_icx_tor_dump(tor_info, tordump0, tordump1, tordump2):
-    if not logger:
-        init_logger()
     torkey_list = list(tor_info.keys())
     if "CPU" in torkey_list and "CHA" in torkey_list and "TOR" in torkey_list:
         torkey_list.remove("CPU")
@@ -220,8 +212,6 @@ def covert_icx_tor_dump(tor_info, tordump0, tordump1, tordump2):
     return True
 
 def covert_cpx_tor_dump(tor_info, dw):
-    if not logger:
-        init_logger()
     torkey_list = list(tor_info.keys())
     if "CPU" in torkey_list and "CHA" in torkey_list:
         torkey_list.remove("CPU")
@@ -304,8 +294,6 @@ def covert_cpx_tor_dump(tor_info, dw):
 
 # according to the input CPU type is ICX's Errorlist, use function covert_icx_tor_dump() to do some conversion, return tor_data.
 def get_report_icx_TOR_dump(Errorlist):
-    if not logger:
-        init_logger()
     tor_data = {}
     for error in Errorlist:
         if error.get("ErrorArch", None) == "TorDump":
@@ -332,8 +320,6 @@ def get_report_icx_TOR_dump(Errorlist):
 
 # according to the input CPU type is CPX's Errorlist, use function covert_icx_tor_dump() to do some conversion, return tor_data.
 def get_report_cpx_TOR_dump(Errorlist):
-    if not logger:
-        init_logger()
     tor_data = {}
     for error in Errorlist:
         if error.get("ErrorArch", None) == "TorDump":
@@ -491,8 +477,6 @@ def get_dic_key(key_list, value):
 
 # CPU type is CPX's register name conversion mapping.
 def cpx_reg_mapping(reg, value, cpuinfo):
-    if not logger:
-        init_logger()
     data_dic = {}
     if "IA32_MCi" in reg:
         if int(cpuinfo["bank_id"]) < 4:
