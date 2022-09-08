@@ -11,10 +11,13 @@ from testfile.teat_dicts import dic, dic_a, dic_b, dic_mapping, type_mapping, an
     dic_cpx_TOR_dump, dic_get_icx_TOR_dump, ret_get_icx_TOR_dump, dic_get_cpx_TOR_dump, ret_get_cpx_TOR_dump
 from util import _read_json, get_file_list, deal_bankid_None, get_file_retxt, get_dict_by_conf, generate_file, \
     reset_dic, merge_dic, icx_reg_mapping, cpx_reg_mapping, covert_icx_tor_dump, covert_cpx_tor_dump, \
-    get_report_icx_TOR_dump, get_report_cpx_TOR_dump
+    get_report_icx_TOR_dump, get_report_cpx_TOR_dump, logger, init_logger
 
 
 class TestONEKEYLOG():
+
+    def __init__(self):
+        init_logger()
 
     def test_read_json(self):
         errors = []
