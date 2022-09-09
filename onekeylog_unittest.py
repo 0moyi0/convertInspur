@@ -18,6 +18,9 @@ class TestONEKEYLOG():
     def __init__(self):
         init_logger()
 
+    def __init__(self):
+        init_logger()
+
     def test_read_json(self):
         errors = []
         temp, error_list = _read_json("testfile/test.json")
