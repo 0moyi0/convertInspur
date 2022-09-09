@@ -15,8 +15,6 @@ from util import _read_json, get_file_list, deal_bankid_None, get_file_retxt, ge
 
 
 class TestONEKEYLOG():
-    def __init__(self):
-        init_logger()
 
     def __init__(self):
         init_logger()
